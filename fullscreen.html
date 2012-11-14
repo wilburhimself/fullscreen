@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>FullScreen API</title>
+		<meta charset="utf-8" />
+	</head>
+
+	<body>
+		<h3>Click en las opciones para activar/desactivar el modo FullScreen</h3>
+
+		<button id="enable" onclick="enableFullScreen(document.documentElement);">FullScreen</button>​
+		<button onclick="cancelFullScreen();">Cancelar Fullscreen</button>
+
+		<script>
+			function enableFullScreen(element) {
+			    if (element.requestFullScreen) {
+			        element.requestFullScreen();
+			    } else if (element.mozRequestFullScreen) {
+			        element.mozRequestFullScreen();
+			    } else if (element.webkitRequestFullScreen) {
+			        element.webkitRequestFullScreen();
+			    }
+			}
+
+			function cancelFullScreen() {
+			    if (document.cancelFullScreen) {
+			        document.cancelFullScreen();
+			    } else if (document.mozCancelFullScreen) {
+			        document.mozCancelFullScreen();
+			    } else if (document.webkitCancelFullScreen) {
+			        document.webkitCancelFullScreen();
+			    }
+			}
+		</script>
+	</body>
+</html>
